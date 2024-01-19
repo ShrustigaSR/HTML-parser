@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+   <div style="text-align:center">
+    <h1>Upload and Parse</h1>
+
+    <form action="http://localhost:5000/uploader" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" />
+        <input type="submit" value="Upload and Parse" />
+    </form>
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+    {% if data %}
+        <a href="{{ url_for('download_file') }}">Download JSON</a>
+    {% endif %}
+   </div>
+</body>
+</html>
